@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Form, Input } from 'antd';
+import { Input } from 'antd';
+import { Form } from './antd';
 
 interface Props {
     form: any
@@ -7,23 +8,19 @@ interface Props {
 class UserForm extends Component<Props> {
     handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        const { form: { getFieldsValue } } = this.props;
-        const values = getFieldsValue()
-        console.log(values, 'values');
+        // const { form: { getFieldsValue } } = this.props;
+        // const values = getFieldsValue()
+        // console.log(values, 'values');
     }
     render() {
-        const { form: { getFieldDecorator } } = this.props;
+        // const { form: { getFieldDecorator } } = this.props;
         return (
-            <Form onSubmit={this.handleSubmit} className="login-form">
+            <Form>
                 <Form.Item label="username">
-                    {
-                        getFieldDecorator('username')(<Input />)
-                    }
+                    <Input />
                 </Form.Item>
                 <Form.Item label="password">
-                    {
-                        getFieldDecorator('password')(<Input />)
-                    }
+                    <Input />
                 </Form.Item>
                 <Form.Item>
                     <button>提交</button>
